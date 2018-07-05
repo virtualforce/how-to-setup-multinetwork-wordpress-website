@@ -50,11 +50,11 @@ RewriteRule . index.php [L]
 ![alt text](https://github.com/virtualforce/how-to-setup-multinetwork-wordpress-website/blob/master/images/step2.png ".htaccess and wp-config extra lines.")
 
 #### 3. Login to your wordpress admin panel:
-Once you complete these steps, your network is enabled and configured. You will have to log in again. Log In.After login,You need to go to Plugins and activate the plugins that you require as Network Activate.You can activate/de-activate plugins later too if you want.
+Once you complete these steps, your network is enabled and configured. You will have to Log In again.After login,You need to go to Plugins and activate the plugins that you require as Network Activate.You can activate/de-activate plugins later too if you want.
 
 
 #### 4. Enabling Sub-Domains/Domains in Multisite Network:
-You’ll need to create a subdomain with `*` as the subdomain name. For example, if your WordPress is installed at www.test.com then you need to create a subdomain subdomain.example.com. However, this subdomain should point to the same directory where your WordPress is installed. I suggest you to put anything(example.test.com) here so you can atleast go to next step and create a sub-website.
+You’ll need to create a subdomain with `*` as the subdomain name. For example, if your WordPress is installed at www.test.com then you need to create a subdomain ![example.test.com](example.test.com "example.test.com"). However, this subdomain should point to the same directory where your WordPress is installed. I suggest you to put anything(example.test.com) here so you can atleast go to next step and create a sub-website.
 
 ![alt text](https://github.com/virtualforce/how-to-setup-multinetwork-wordpress-website/blob/master/images/step3.png "Addin domain or subdomains")
 

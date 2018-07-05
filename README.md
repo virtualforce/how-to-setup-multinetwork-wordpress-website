@@ -24,7 +24,6 @@ define('DOMAIN_CURRENT_SITE', 'localhost.test.com');
 define('PATH_CURRENT_SITE', '/cdpr/');
 define('SITE_ID_CURRENT_SITE', 1);
 define('BLOG_ID_CURRENT_SITE', 1);
-
 define('COOKIE_DOMAIN', '');
 define('ADMIN_COOKIE_PATH', '/');
 define('COOKIEPATH', '/');

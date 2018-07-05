@@ -54,7 +54,7 @@ Once you complete these steps, your network is enabled and configured. You will 
 
 
 #### 4. Enabling Sub-Domains/Domains in Multisite Network:
-You’ll need to create a subdomain with `*` as the subdomain name. For example, if your WordPress is installed at www.test.com then you need to create a subdomain ![example.test.com](example.test.com "example.test.com"). However, this subdomain should point to the same directory where your WordPress is installed. 
+You’ll need to create a subdomain with `*` as the subdomain name. For example, if your WordPress is installed at www.test.com then you need to create a subdomain ![alt text](example.test.com "example.test.com"). However, this subdomain should point to the same directory where your WordPress is installed. 
 
 I suggest you to put anything(example.test.com) here so you can atleast go to next step and create a sub-website.
 

@@ -20,10 +20,15 @@ After "Clicking" install button, You will see second screen as below to add belo
 
 `define('MULTISITE', true);
 define('SUBDOMAIN_INSTALL', false);
-define('DOMAIN_CURRENT_SITE', 'localhost');
+define('DOMAIN_CURRENT_SITE', 'localhost.test.com');
 define('PATH_CURRENT_SITE', '/cdpr/');
 define('SITE_ID_CURRENT_SITE', 1);
-define('BLOG_ID_CURRENT_SITE', 1);`
+define('BLOG_ID_CURRENT_SITE', 1);
+
+define('COOKIE_DOMAIN', '');
+define('ADMIN_COOKIE_PATH', '/');
+define('COOKIEPATH', '/');
+define('SITECOOKIEPATH', '/');`
 
 Add the following lines to your .htaccess and save.
 
@@ -43,28 +48,64 @@ RewriteRule . index.php [L]`
 ![alt text](https://github.com/virtualforce/how-to-setup-multinetwork-wordpress-website/blob/master/images/step2.png ".htaccess and wp-config extra lines.")
 
 #### 3. Login to your wordpress admin panel:
-Once you complete these steps, your network is enabled and configured. You will have to log in again. Log In.After login,you will be able to see screen like below.
+Once you complete these steps, your network is enabled and configured. You will have to log in again. Log In.After login,You need to go to Plugins and activate the plugins that you require as Network Activate.You can activate/de-activate plugins later too if you want.
 
 
 #### 4. Enabling Sub-Domains/Domains in Multisite Network:
-You’ll need to create a subdomain with `*` as the subdomain name. For example, if your WordPress is installed at www.example.com then you need to create a subdomain subdomain.example.com. However, this subdomain should point to the same directory where your WordPress is installed. We will show you how to create a wildcard subdomain in cPanel.
+You’ll need to create a subdomain with `*` as the subdomain name. For example, if your WordPress is installed at www.test.com then you need to create a subdomain subdomain.example.com. However, this subdomain should point to the same directory where your WordPress is installed. I suggest you to put anything(example.test.com) here so you can atleast go to next step and create a sub-website.
 
 ![alt text](https://github.com/virtualforce/how-to-setup-multinetwork-wordpress-website/blob/master/images/step3.png "Addin domain or subdomains")
 
-Log in to your cPanel dashboard and then under the Domains section click on Subdomains. On the next screen simply enter * in the subdomain field. Make sure that the document root field is pointing to the directory where you have WordPress installed. This is the directory where wp-config.php file resides. Hit the create button to add the subdomain.
+Once you have setup the sub-site,You can change the base url of your sub-site like www.test.net You can make settings for this particular new sub-site.You can add users and themes.
 
+![alt text](https://github.com/virtualforce/how-to-setup-multinetwork-wordpress-website/blob/master/images/step4.png "settings of new sub-site")
 
+#### 5. You are done.
+That's all.
 
+#### Virtuals hosts and other basic configurations.
+You have to point your secondary domain(www.test.net) to the same IP addresss to which your main domain(www.test.com) is pointed.
 
-media upload limit
-Server Side:
+Your virtual hosts file should look like:
+
+`##virtual host for your test.com
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html/test.com
+    ServerName www.test.com
+	<Directory "/var/www/html/test.com">
+        Options Indexes FollowSymLinks Includes ExecCGI
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+##virtual host for your test.net 
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html/test.com
+    ServerName www.test.net
+	<Directory "/var/www/html/test.com">
+        Options Indexes FollowSymLinks Includes ExecCGI
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>`
+
+There are some basic configurations for a Network website like maximum upload size to media,type of files allowed etc.Please see the below screenshot.
+
+![alt text](https://github.com/virtualforce/how-to-setup-multinetwork-wordpress-website/blob/master/images/step4.png "settings of new sub-site")
+
+Make sure rewrite module is enabled on your server.Run following command to enable it.
 sudo a2enmod rewrite
-<Directory /var/www/>
-                Options Indexes FollowSymLinks MultiViews
-                AllowOverride All
-                Order allow,deny
-                allow from all
-</Directory>
+
+Don't forget to restart your server after you have made changes to PHP.INI or virtual hosts file.
 
 sudo service apache2 restart
 
+
+### References:
+
+ * [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-set-up-multiple-wordpress-sites-using-multisite)
+ * [WPBEGINNER](https://www.wpbeginner.com/glossary/multisite/)

@@ -54,7 +54,9 @@ Once you complete these steps, your network is enabled and configured. You will 
 
 
 #### 4. Enabling Sub-Domains/Domains in Multisite Network:
-You’ll need to create a subdomain with `*` as the subdomain name. For example, if your WordPress is installed at www.test.com then you need to create a subdomain ![example.test.com](example.test.com "example.test.com"). However, this subdomain should point to the same directory where your WordPress is installed. I suggest you to put anything(example.test.com) here so you can atleast go to next step and create a sub-website.
+You’ll need to create a subdomain with `*` as the subdomain name. For example, if your WordPress is installed at www.test.com then you need to create a subdomain ![example.test.com](example.test.com "example.test.com"). However, this subdomain should point to the same directory where your WordPress is installed. 
+
+I suggest you to put anything(example.test.com) here so you can atleast go to next step and create a sub-website.
 
 ![alt text](https://github.com/virtualforce/how-to-setup-multinetwork-wordpress-website/blob/master/images/step3.png "Addin domain or subdomains")
 
@@ -100,12 +102,13 @@ There are some basic configurations for a Network website like maximum upload si
 
 ![alt text](https://github.com/virtualforce/how-to-setup-multinetwork-wordpress-website/blob/master/images/step4.png "settings of new sub-site")
 
-Make sure rewrite module is enabled on your server.Run following command to enable it.
-sudo a2enmod rewrite
+Make sure `rewrite module` is enabled on your server.Run following command to enable it.
+
+`sudo a2enmod rewrite`
 
 Don't forget to restart your server after you have made changes to PHP.INI or virtual hosts file.
 
-sudo service apache2 restart
+`sudo service apache2 restart`
 
 
 ### References:

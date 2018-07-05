@@ -19,14 +19,23 @@ Save your wp-config.php file and log in to your WordPress website. Go to Tools Â
 After "Clicking" install button, You will see second screen as below to add below extra lines to your wp-config.php file and save.
 
 `define('MULTISITE', true);
+
 define('SUBDOMAIN_INSTALL', false);
-define('DOMAIN_CURRENT_SITE', 'localhost.test.com');
-define('PATH_CURRENT_SITE', '/cdpr/');
+
+define('DOMAIN_CURRENT_SITE', 'www.test.com');
+
+define('PATH_CURRENT_SITE', '/');
+
 define('SITE_ID_CURRENT_SITE', 1);
+
 define('BLOG_ID_CURRENT_SITE', 1);
+
 define('COOKIE_DOMAIN', '');
+
 define('ADMIN_COOKIE_PATH', '/');
+
 define('COOKIEPATH', '/');
+
 define('SITECOOKIEPATH', '/');`
 
 Add the following lines to your .htaccess and save.

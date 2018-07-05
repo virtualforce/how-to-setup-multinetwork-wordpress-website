@@ -18,29 +18,23 @@ Save your wp-config.php file and log in to your WordPress website. Go to Tools Â
 
 After "Clicking" install button, You will see second screen as below to add below extra lines to your wp-config.php file and save.
 
-`define('MULTISITE', true);`
-
-`define('SUBDOMAIN_INSTALL', false);`
-
-`define('DOMAIN_CURRENT_SITE', 'www.test.com');`
-
-define('PATH_CURRENT_SITE', '/');
-
+```php
+define('MULTISITE', true);
+define('SUBDOMAIN_INSTALL', false);
+define('DOMAIN_CURRENT_SITE', 'localhost.test.com');
+define('PATH_CURRENT_SITE', '/cdpr/');
 define('SITE_ID_CURRENT_SITE', 1);
-
 define('BLOG_ID_CURRENT_SITE', 1);
-
 define('COOKIE_DOMAIN', '');
-
 define('ADMIN_COOKIE_PATH', '/');
-
 define('COOKIEPATH', '/');
-
-define('SITECOOKIEPATH', '/');`
+define('SITECOOKIEPATH', '/');
+```
 
 Add the following lines to your .htaccess and save.
 
-`RewriteEngine On
+```php
+RewriteEngine On
 RewriteBase /website-folder-name/
 RewriteRule ^index\.php$ - [L]
 # add a trailing slash to /wp-admin
@@ -50,8 +44,8 @@ RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 RewriteRule ^([_0-9a-zA-Z-]+/)?(wp-(content|admin|includes).*) $2 [L]
 RewriteRule ^([_0-9a-zA-Z-]+/)?(.*\.php)$ $2 [L]
-RewriteRule . index.php [L]`
-
+RewriteRule . index.php [L]
+```
 
 ![alt text](https://github.com/virtualforce/how-to-setup-multinetwork-wordpress-website/blob/master/images/step2.png ".htaccess and wp-config extra lines.")
 
@@ -75,8 +69,8 @@ That's all.
 You have to point your secondary domain(www.test.net) to the same IP addresss to which your main domain(www.test.com) is pointed.
 
 Your virtual hosts file should look like:
-
-`##virtual host for your test.com
+```php
+##virtual host for your test.com
 <VirtualHost *:80>
     ServerAdmin webmaster@localhost
     DocumentRoot /var/www/html/test.com
@@ -99,7 +93,8 @@ Your virtual hosts file should look like:
         Order allow,deny
         Allow from all
     </Directory>
-</VirtualHost>`
+</VirtualHost>
+```
 
 There are some basic configurations for a Network website like maximum upload size to media,type of files allowed etc.Please see the below screenshot.
 
